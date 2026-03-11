@@ -75,6 +75,7 @@ Conversation flows between hosts.
 # Formal Analysis Report
 
 <img width="562" height="752" alt="5" src="https://github.com/user-attachments/assets/b26d1733-a2d2-4a2e-9d80-4ed74ef6ea1b" />
+
 The tool can generate a **formal SOC investigation report** including:
 
 - Executive Overview
