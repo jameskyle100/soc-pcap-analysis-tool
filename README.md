@@ -73,5 +73,5 @@ Formal Report
 Clone or download the project.
 
 ```bash
-git clone https://github.com/yourrepo/soc-pcap-analysis-tool
+https://github.com/jameskyle100/soc-pcap-analysis-tool.git
 cd soc-pcap-analysis-tool
