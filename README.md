@@ -99,7 +99,7 @@ Running the Tool
 
 Start the analysis server.
 
-python3 analyzer.py
+python3 Pcap-analyzer.py
 
 Once the server starts, open your browser and navigate to:
 
@@ -134,7 +134,7 @@ Example Usage
 git clone https://github.com/jameskyle100/soc-pcap-analysis-tool.git
 cd soc-pcap-analysis-tool
 pip install -r requirements.txt
-python3 analyzer.py
+python3 Pcap-analyzer.py
 
 Open:
 
@@ -159,6 +159,6 @@ All analysis is performed locally on the machine running the tool.
 Project Structure
 soc-pcap-analysis-tool
 │
-├── analyzer.py
+├── Pcap-analyzer.py
 ├── requirements.txt
 ├── README.md
