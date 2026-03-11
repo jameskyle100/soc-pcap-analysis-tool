@@ -69,12 +69,12 @@ Conversation flows between hosts.
 <img width="919" height="720" alt="3" src="https://github.com/user-attachments/assets/a8ac8aa5-8e3b-4fa9-a8b5-62dc397c5a0c" />
 <img width="743" height="772" alt="4" src="https://github.com/user-attachments/assets/fee3b2fb-c900-4e3a-9c86-09bf627bcda5" />
 <img width="701" height="467" alt="6" src="https://github.com/user-attachments/assets/7ea007d9-dd23-42da-996a-d9c5b00a366d" />
-<img width="562" height="752" alt="5" src="https://github.com/user-attachments/assets/b26d1733-a2d2-4a2e-9d80-4ed74ef6ea1b" />
 
 ---
 
 # Formal Analysis Report
 
+<img width="562" height="752" alt="5" src="https://github.com/user-attachments/assets/b26d1733-a2d2-4a2e-9d80-4ed74ef6ea1b" />
 The tool can generate a **formal SOC investigation report** including:
 
 - Executive Overview
