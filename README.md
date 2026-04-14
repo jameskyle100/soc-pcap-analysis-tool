@@ -1,6 +1,6 @@
-# PCAP Analysis Tool
+# SOC PCAP Analysis Tool
 
-Investigation-ready PCAP analysis for faster SOC triage and deeper network insight.
+A SOC-focused PCAP triage dashboard designed to help security analysts quickly analyze packet capture files without spending hours manually reviewing traffic in Wireshark.
 
 The tool automatically analyzes `.pcap` and `.pcapng` files and produces investigation-ready insights including network behavior, suspicious activity indicators, and a formal analysis summary report.
 
@@ -63,9 +63,13 @@ HTTP requests and paths.
 Flows  
 Conversation flows between hosts.
 <img width="979" height="226" alt="0" src="https://github.com/user-attachments/assets/83ef2476-cdca-4f13-971f-01ec40b84750" />
-<img width="932" height="469" alt="Screenshot1" src="https://github.com/user-attachments/assets/97fc666b-a049-4187-8c6f-9d44465f41b4" />
-<img width="949" height="466" alt="screenshot2" src="https://github.com/user-attachments/assets/b59628a4-caaa-4f87-a5a2-57a8ee30e9d0" />
-<img width="280" height="330" alt="screenshot3" src="https://github.com/user-attachments/assets/dc2a6387-5f1e-49c5-bd31-6874fd2a24d3" />
+<img width="918" height="768" alt="Screenshot_2026-03-11_15-51-34" src="https://github.com/user-attachments/assets/41825bc7-b860-4ac3-8e7e-6daed3369633" />
+
+<img width="920" height="614" alt="2" src="https://github.com/user-attachments/assets/363d8e5c-1df7-4b0c-937c-1ace603d3d42" />
+<img width="919" height="720" alt="3" src="https://github.com/user-attachments/assets/a8ac8aa5-8e3b-4fa9-a8b5-62dc397c5a0c" />
+<img width="743" height="772" alt="4" src="https://github.com/user-attachments/assets/fee3b2fb-c900-4e3a-9c86-09bf627bcda5" />
+<img width="701" height="467" alt="6" src="https://github.com/user-attachments/assets/7ea007d9-dd23-42da-996a-d9c5b00a366d" />
+
 ---
 
 # Formal Analysis Report
@@ -90,8 +94,8 @@ Reports can be exported as **PDF for incident documentation**.
 Clone the repository.
 
 ```bash
-git clone https://github.com/jameskyle100/pcap-analysis-tool.git
-cd pcap-analysis-tool
+git clone https://github.com/jameskyle100/soc-pcap-analysis-tool.git
+cd soc-pcap-analysis-tool
 
 Install required dependencies.
 
@@ -136,8 +140,8 @@ Recommended mode for investigations:
 
 hunt
 Example Usage
-git clone https://github.com/jameskyle100/pcap-analysis-tool.git
-cd pcap-analysis-tool
+git clone https://github.com/jameskyle100/soc-pcap-analysis-tool.git
+cd soc-pcap-analysis-tool
 pip install -r requirements.txt
 python3 run_dashboard.py
 
@@ -162,7 +166,7 @@ upload PCAP data anywhere
 All analysis is performed locally on the machine running the tool.
 
 Project Structure
-pcap-analysis-tool
+soc-pcap-analysis-tool
 │
 ├── run_dashboard.py
 ├── requirements.txt
