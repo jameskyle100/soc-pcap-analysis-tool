@@ -62,7 +62,7 @@ HTTP requests and paths.
 
 Flows  
 Conversation flows between hosts.
-<img width="979" height="226" alt="0" src="https://github.com/user-attachments/assets/83ef2476-cdca-4f13-971f-01ec40b84750" />
+<img width="659" height="175" alt="Screenshot 2026-04-14 141329" src="https://github.com/user-attachments/assets/fa8d49a7-486c-4a1d-807f-ad5cc66a8457" />
 <img width="918" height="768" alt="Screenshot_2026-03-11_15-51-34" src="https://github.com/user-attachments/assets/41825bc7-b860-4ac3-8e7e-6daed3369633" />
 
 <img width="920" height="614" alt="2" src="https://github.com/user-attachments/assets/363d8e5c-1df7-4b0c-937c-1ace603d3d42" />
