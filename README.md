@@ -2,63 +2,91 @@
 
 Investigation-ready PCAP analysis for faster SOC triage and deeper network insight.
 
-The tool automatically analyzes `.pcap` and `.pcapng` files and produces investigation-ready insights including network behavior, suspicious activity indicators, and a formal analysis summary report.
+This tool helps analysts review `.pcap` and `.pcapng` files without spending long hours manually digging through traffic in Wireshark. It parses network captures, reconstructs flows, extracts HTTP transactions where possible, highlights suspicious activity, and presents the results in a compact investigation dashboard with exportable reports.
 
-This tool is intended for SOC analysts, incident responders, and threat hunters** who need rapid visibility into captured network traffic.
+It is designed for:
 
----
-
-# Features
-
-SOC-Oriented PCAP Triage
-
-- Upload `.pcap` or `.pcapng` files through a web dashboard
-- Automatic packet analysis
-- Host activity profiling
-- DNS query analysis
-- TLS SNI inspection
-- HTTP request investigation
-- Conversation flow detection
-- Suspicious behavior findings
-- Analyst takeaway generation
-- Formal investigation summary
-- Downloadable PDF report
+- SOC analysts
+- incident responders
+- threat hunters
+- blue team investigators
+- security engineers performing rapid PCAP review
 
 ---
 
-# Dashboard Capabilities
+# Purpose
 
-The dashboard provides immediate visibility into capture activity.
+The purpose of this project is to turn raw packet captures into investigation-ready findings.
 
-### PCAP Summary
-- Packet count
-- Top protocols
-- Unique hosts
-- Triage score
-- Findings summary
+Instead of showing only packet counts and protocol breakdowns, the tool aims to provide:
 
-### Capture Health
-- Average packet size
-- Median packet size
-- Most used ports
-- Most queried DNS domains
+- fast triage visibility
+- suspicious behavior detection
+- host-centric analysis
+- DNS, TLS, and HTTP visibility
+- conversation and flow inspection
+- evidence-rich findings
+- downloadable analyst reports
 
-### Investigation Tabs
+This makes it useful for first-pass analysis, escalation support, and security investigations where speed matters.
 
-Findings  
-Prioritized security observations detected during analysis.
+---
 
-Hosts  
-Most active systems and communication patterns.
+# Main Capabilities
 
-Network  
-Top source and destination IP activity.
+## PCAP triage and analysis
 
-DNS & TLS  
-Domain queries and TLS SNI analysis.
+- Upload `.pcap` or `.pcapng` files through the web dashboard
+- Analyze packet captures locally
+- Detect suspicious behavior using SOC-oriented heuristics
+- Generate host, network, DNS, TLS, web, and flow summaries
+- Produce a triage score based on observed findings
+- Export results for documentation and handoff
 
-Web  
-HTTP requests and paths.
+## Protocol visibility
+
+- DNS query and response inspection
+- TLS ClientHello SNI extraction
+- HTTP request and response inspection
+- TCP flow reconstruction
+- request/response transaction view for supported HTTP traffic
+- extracted object identification from HTTP responses where possible
+
+## Investigation features
+
+- clickable metric cards
+- clickable finding details
+- right-side investigation drawer
+- host-centric investigation view
+- timeline panel
+- sticky filters
+- compact header search
+- flow inspection
+- richer evidence for findings
+
+## Enrichment support
+
+- settings page for API-based integrations
+- VirusTotal integration support
+- OTX integration support
+- AbuseIPDB integration support
+
+When configured, enrichment can show information such as:
+
+- reputation
+- detection counts
+- tags
+- pulse matches
+- abuse confidence score
+- first seen / last seen
+
+## Export options
+
+- PDF report
+- JSON evidence export
+- CSV findings export
+- Markdown analyst summary
+- analyst handoff bundle
 
 Flows  
 Conversation flows between hosts.
@@ -73,98 +101,235 @@ Conversation flows between hosts.
 
 <img width="562" height="752" alt="5" src="https://github.com/user-attachments/assets/b26d1733-a2d2-4a2e-9d80-4ed74ef6ea1b" />
 
-The tool can generate a **formal SOC investigation report** including:
+# Dashboard Overview
 
-- Executive Overview
-- Analyst Takeaway
-- Priority Findings
-- Most Relevant Hosts
-- Capture Metrics
-- Investigation Recommendation
+The dashboard is designed to provide fast visibility into suspicious traffic while staying compact and responsive.
 
-Reports can be exported as **PDF for incident documentation**.
+## Top summary cards
+
+The main top cards provide quick pivot points into the analysis:
+
+- High Severity Alerts
+- All Alerts
+- Packets
+- Unique Destinations
+- Triage Score
+- Window
+
+Each card is clickable and opens relevant result details in the investigation drawer.
+
+## Investigation sections
+
+### Findings
+Prioritized suspicious observations detected during analysis.
+
+### Hosts
+Most active systems, communication behavior, and host pivots.
+
+### Network
+Top source and destination IP activity, protocols, and conversations.
+
+### DNS and TLS
+DNS queries, response behavior, SNI extraction, and domain visibility.
+
+### Web
+HTTP requests, paths, hosts, methods, and reconstructed transaction details.
+
+### Flows
+Conversation flows, packet counts, transfer visibility, stream details, and extracted objects when available.
+
+### Timeline
+Time-bucketed event view to help identify spikes and focus investigation windows.
+
+---
+
+# Analysis Modes
+
+The tool supports multiple analysis modes depending on the workflow.
+
+| Mode  | Description |
+|-------|-------------|
+| quick | Fast high-signal triage mode |
+| hunt  | Full investigation mode with broader detection coverage |
+| web   | Focus on HTTP, web traffic, and TLS-related activity |
+| dns   | Focus on DNS-heavy activity, rare domains, entropy, and tunneling-style indicators |
+
+Recommended default mode for most investigations:
+
+`hunt`
+
+---
+
+# Evidence and Findings
+
+Findings are designed to be investigation-ready rather than simple alerts.
+
+Each finding may include:
+
+- source host
+- destination host or domain
+- first seen and last seen timestamps
+- packet count
+- representative sample packets
+- related DNS evidence
+- related TLS SNI
+- related HTTP evidence
+- related flows
+- confidence and scoring context
+
+The goal is to help analysts understand not only what triggered, but also why it triggered.
+
+---
+
+# HTTP Transaction and Flow Reconstruction
+
+The tool now includes deeper packet and flow visibility for common traffic patterns.
+
+Supported improvements include:
+
+- reconstructed client/server TCP streams
+- HTTP request/response pairing where possible
+- method, host, URI, user-agent, and response status extraction
+- response object identification
+- file or object type hints from HTTP content
+
+Detected object types may include:
+
+- PE executables
+- ZIP archives
+- PDF files
+- PNG
+- JPEG
+- GIF
+- JSON
+- HTML
+- JavaScript
+
+This is intended to improve investigation quality and reduce the need to leave the dashboard for basic transaction review.
+
+---
+
+# Formal Reporting
+
+The tool can generate a formal investigation summary suitable for documentation and handoff.
+
+Report content can include:
+
+- executive overview
+- analyst takeaway
+- priority findings
+- top hosts
+- capture metrics
+- recommended next steps
+
+Supported export formats include:
+
+- PDF
+- JSON
+- CSV
+- Markdown
+- analyst handoff bundle
+
+---
+
+# Security and Privacy Notice
+
+This tool is designed for local analysis.
+
+It does not execute payloads and is intended for passive packet inspection only.
+
+By default, the tool does not upload PCAP data anywhere.
+
+External integrations such as VirusTotal, OTX, and AbuseIPDB are optional and only used if the analyst enables them and supplies API credentials.
+
+Recommended usage:
+
+- run locally on an analyst workstation
+- use enrichment only when policy allows
+- avoid sending sensitive indicators externally unless approved
 
 ---
 
 # Installation
 
-Clone the repository.
+Clone the repository and install the dependencies.
 
 ```bash
 git clone https://github.com/jameskyle100/pcap-analysis-tool.git
 cd pcap-analysis-tool
-
-Install required dependencies.
-
 pip install -r requirements.txt
 
-Or with Python3:
+
+
+If needed, use Python 3 explicitly:
 
 pip3 install -r requirements.txt
 Running the Tool
 
-Start the analysis server.
+Start the dashboard:
 
 python3 run_dashboard.py
 
-Once the server starts, open your browser and navigate to:
+Then open your browser and go to:
 
 http://127.0.0.1:8765
-Using the Tool
-
+How to Use
 Open the dashboard in your browser.
-
 Upload a .pcap or .pcapng file.
-
 Select an analysis mode.
-
 Click Analyze PCAP.
+Review results in the dashboard sections.
+Click findings, hosts, flows, or top cards to inspect evidence.
+Open the report or export the results if needed.
 
-Review the results in the dashboard tabs.
-
-Open Analysis Summary to generate the formal report.
-
-Download the PDF report if needed.
-
-Analysis Modes
-Mode	Description
-quick	Fast statistical analysis
-hunt	Deep SOC investigation mode
-web	Focus on HTTP activity
-dns	Focus on DNS queries
-
-Recommended mode for investigations:
+For best overall results, start with:
 
 hunt
-Example Usage
-git clone https://github.com/jameskyle100/pcap-analysis-tool.git
-cd pcap-analysis-tool
-pip install -r requirements.txt
-python3 run_dashboard.py
+Integration Settings
 
-Open:
+The dashboard includes a small settings button in the upper-right corner.
 
-http://127.0.0.1:8765
+Inside Settings, you can configure API-based integrations for:
 
-Upload a PCAP file and begin analysis.
+VirusTotal
+OTX
+AbuseIPDB
 
-Security Notice
+These integrations can be used to enrich clicked indicators such as:
 
-This tool performs local static packet analysis only.
+IP addresses
+domains
+hashes
 
-It does NOT:
+This allows the drawer or finding details to show additional threat intelligence when configured.
 
-execute payloads
+Recommended Workflow
 
-connect to external threat intelligence services
+A practical investigation flow is:
 
-upload PCAP data anywhere
-
-All analysis is performed locally on the machine running the tool.
-
+Upload a PCAP file
+Run hunt mode
+Review high severity alerts
+Check the timeline for spikes
+pivot into the most suspicious host
+inspect related DNS, TLS, HTTP, and flows
+review enriched indicators if enabled
+export the report and evidence bundle
 Project Structure
-pcap-analysis-tool
-│
+pcap-analysis-tool/
 ├── run_dashboard.py
 ├── requirements.txt
 ├── README.md
+├── tests/
+├── soc_pcap_tool/
+│   ├── webapp.py
+│   ├── models.py
+│   ├── parsers.py
+│   ├── detections.py
+│   ├── reporting.py
+│   ├── pdf_report.py
+│   ├── allowlist.py
+│   ├── ioc.py
+│   ├── utils.py
+│   └── templates/
+│       └── dashboard.html
